@@ -90,7 +90,7 @@ Cell * generateMaze(int width, int height)//the main function of the file
     //Create the entrance in the top left
     M[0].l = false;
     //Create an exit in the bottom right
-    M[mH * mW-1].r = false;
+    M[mH * mW - 1].r = false;
     return M;//finally return the generated maze
 }
 
@@ -187,7 +187,7 @@ void goRight(Cell * M , int x, int y)
 /*
  * TESTING FUNCTION (will not be included in the release code)
  */
-void display(Cell*L)
+void display(Cell * L)
 {
     bool buff1[4 * mW];
     bool buff2[4 * mW];
@@ -199,13 +199,13 @@ void display(Cell*L)
         for(int j = 0; j < mH; j++)//for 2
         {
             buff1[4 * j] = buff1[4 * j + 3] = true;
-            buff1[4 * j + 1] = buff1[4 * j + 2] = L[j+i*mW].u;
+            buff1[4 * j + 1] = buff1[4 * j + 2] = L[j + i * mW].u;
             buff3[4 * j] = buff3[4 * j + 3] = true;
-            buff3[4 * j + 1] = buff3[4 * j + 2] = L[j+i*mW].d;
+            buff3[4 * j + 1] = buff3[4 * j + 2] = L[j + i * mW].d;
 
             buff2[4 * j + 1] = buff2[4 * j + 2] = false; //center is always empty
-            buff2[4 * j] = L[j+i*mW].l;
-            buff2[4 * j + 3] = L[j+i*mW].r;
+            buff2[4 * j] = L[j + i * mW].l;
+            buff2[4 * j + 3] = L[j + i * mW].r;
         }//end for 2
         for(int k = 0; k < 4 * mW; k++)
         {
@@ -226,10 +226,10 @@ void display(Cell*L)
         }
         std::cout << '\n';
     }
- }
-int main(int argNr, char* args[])
+}
+int main(int argNr, char * args[])
 {
-    Cell * Maze = generateMaze(10,10);
+    Cell * Maze = generateMaze(10, 10);
     display(Maze);
     return 0;
 }
