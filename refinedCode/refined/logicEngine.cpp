@@ -12,7 +12,6 @@
  *     -> Generating the maze
  *     -> Reward system and others
  *
-
 */
 
 
