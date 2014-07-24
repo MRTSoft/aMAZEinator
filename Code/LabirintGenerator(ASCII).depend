@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1406019229 source:f:\tudor\informatica\misc\labirintgenerator(ascii)\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
