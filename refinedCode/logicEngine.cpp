@@ -38,7 +38,7 @@ struct Cell
 // in the C array we have all the possible arrangements  of 4
 //const unsigned C[24] = {1234, 1243, 1324, 1342, 1423, 1432, 2134, 2143, 2314, 2341, 2413, 2431, 3124, 3142, 3214, 3241, 3412, 3421, 4123, 4132, 4213, 4231, 4312, 4321}; //initial ordered array
   const unsigned C[24] = {1423, 1324, 3214, 4231, 4132, 2341, 4123, 3142, 1342, 3421, 1432, 4213, 2143, 4321, 2431, 3124, 2314, 4312, 3241, 1234, 2413, 3412, 1243, 2134}; //final randomized array
-int mW, mH;// globally stores the maze Width and height
+int mW, mH;// globally stores the maze Width (mW) and Height (mH)
 Cell * generateMaze(int width, int height)//the main function of the file
 {
     //validate the parameters
@@ -52,6 +52,12 @@ Cell * generateMaze(int width, int height)//the main function of the file
         std::cerr<<"EROR: Height out of bounds!";
         return NULL;
     }
+    //if everything is OK start generating the maze
+        //store the dimensions
+        mW = width;
+        mH = height;
+    //Allocate memory
+    Cell * M = new (nothrow)
 }
 
 
