@@ -1,0 +1,47 @@
+Idei pentru generatorul de labirinturi:
+Creeaza suport SDL si un subprogram de defilare
+	Chestii de luat in calcul:
+		1. Daca labirintul este desfasurat el devine un arbore
+		2. Dificultatea trebuie sa fie aparent medie - usoara
+			2.1. Matematica din spatele jocului ar trebui sa fie dificila
+		3. Un sistem de upgrade-uri sau achievements sporeste valoarea
+		4. Daca ii poti da SHARE e mult mai bun API facebook eventual cu preluarea unei imagini deja salvate
+		5. Labirinturile sunt jocuri in sine deci implementeaza un sistem de salvare a unui labirint generat
+	IDEEA 1.0
+		Subgraf partial de cost maxim
+---------------------------------------
+---- SPECIFICATII IDEE 1.0 ------------
+---------------------------------------
+	-> Gennereaza labirintul
+	-> Genereaza pentru fiecare celula un cost pozitiv (valori?)
+	-> Gaseste cel mai lung drum posibil si salveaza valoarea (dificultate medie).
+		* daca sunt mai multe salveaza coordonatele in format comprimat (v = y*W+x)
+	-> Gaseste drumul cu cea mai mare valoare(suma) posibila
+	-> CRONOMETRU (ON - mod normal/ OFF - mod training)
+	-> FACEBOOK API pentru buton de SHARE
+	-> Sistem de recompense (coins):
+		* cumpara timp suplimentar
+		* arata celulele cu suma maxima
+	-> Mini-Criptare a datelor (game saves)
+	-> Nivele de dificultate in functie de dimensiune.
+	-> Toate aceste functii pot fi grupate sub numele generic de LE (Logistic Engine)
+	
+----------------------------------------
+---- SPECIFICATII IDEE 2.0 -------------
+----------------------------------------
+	-> Salveaza un labirint ca imagine
+	-> Customizare:
+		* culoare BG
+		* culoare FG
+		* stil celule (optional) {pentru imbinare vezi celtic knot generator}
+		* Imagine pentru BG si FG (optional)
+	-> Toolbox optiuni
+	-> Suport pentru export diferite dimensiuni
+----------------------------------------
+---- SPECIFICATII IDEE 3.0 -------------
+----------------------------------------
+ -> Rezolvare simpla a labirintului de catre jucator
+ -> Rezolvare automata de catre calculator
+ -> Ghost Path tracer *** Se va implementa folosind cell_info din DEM
+ -> Cronometru
+ -> Nivele de dificultate

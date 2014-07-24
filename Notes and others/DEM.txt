@@ -1,0 +1,29 @@
+Display Engine for Maze (DEM)
+0 1 2 3 4 5 6 7 8 9
+1 *               *
+2                  
+3                  
+4       #####      
+5       # @ #      
+6       #####      
+7                  
+8 %%%%%%%%%%%%%%%%%                 
+9 %%%%%%%%%%%%%%%%%
+
+1 - 9 -> Lungime/latime celula
+ @    -> Centrul celulei
+%%%%% -> Perete celula
+
+Caracteristici (DEM trebuie sa):
+	1. Afiseze labirintul pe un layer prin accesarea unei functii
+		* Daca se poate o functie care face acest lucru prin afisarea unei animatii
+	2. Afiseze un icon(layer) pe o anumita celula prin returnarea unui obiect de tip ICON
+		Obiecte ICON
+		-> Contin coordonatele unde vor fi afisate relativ la layer-ul pe care este afisat labirintul
+		-> Contin o suprafata (layer) care are caracterul
+		-> Contin o functie OVERLOAD de afisare pe o suprafata data
+		-> Contin coordonatele unde este afisat layer-ul de baza (labirintul)
+	3. Afiseze pe un layer separat informatii despre celule (link cu cerinte de animatie) [cellInfo]
+	4. Contina o fuctie de curatire *(!)*
+	5. Contina o functie care afiseaza toate layer-ele pe unul singur
+	6. Contina o functie care afiseaza alte informatii ? (avem nevoie de asta in DEM?)
