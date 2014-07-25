@@ -19,6 +19,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="SDL_Base.cpp" />
 		<Unit filename="logicEngine.cpp" />
 		<Extensions>
 			<code_completion />
