@@ -14,8 +14,8 @@
 */
 
 //INCLUDE LIBRARIES
-#include <iostream>
-#include <stdlib.h>
+#include <iostream>// cerr, cin and cout
+#include <stdlib.h>//srand() and rand() functions
 // using namespace std; //do we need this?
 
 //variables, constants and data types
@@ -186,7 +186,7 @@ void goRight(Cell * M , int x, int y)
 
 /*
  * TESTING FUNCTION (will not be included in the release code)
- */
+
 void display(Cell * L)
 {
     bool buff1[4 * mW];
@@ -234,3 +234,4 @@ int main(int argNr, char * args[])
     return 0;
 }
 
+*/
