@@ -19,8 +19,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="SDL_Base.cpp" />
+		<Unit filename="entryPoint.cpp" />
 		<Unit filename="logicEngine.cpp" />
+		<Unit filename="maze.cpp" />
+		<Unit filename="maze.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

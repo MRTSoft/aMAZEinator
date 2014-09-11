@@ -5,16 +5,22 @@
  * http://creativecommons.org/licenses/by-nc-sa/4.0/
  * or read the license offline in the License folder
  */
+
  /*
   * Main entry point of the application
   * Contains the main() functions and functions needed to load the graphics
   */
-//LIBRARIES
+//LIBRARIES FOR GRAPHICS
+//TODO create SFML integration
+/*
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_ttf.h>
+*/
+#include "maze.h"
+#include <iostream>
     //TODO include custom library for logistic and others
-
+/*
 //VARIABLES AND CONSTANTS
 #define S_WIDTH 800
 #define S_HEIGHT 600
@@ -27,13 +33,15 @@ Surf * sprite;
 Surf * guiSprite;// NOTE Need to figure out how to build the GUI
 
 void applyTo(int, int, surf *, surf *);
-void applyTO(int, int, surf *, surf *, int, int);
+void applyTo(int, int, surf *, surf *, int, int);
 bool init();
 void cleanUp();
 bool loadResources();
 //FUNCTIONS PROTO
+*/
 
 int main (int argNr, char* args[])
 {
 
+    return 0;
 }

@@ -16,6 +16,7 @@
 //INCLUDE LIBRARIES
 #include <iostream>// cerr, cin and cout
 #include <stdlib.h>//srand() and rand() functions
+#include "maze.h"
 // using namespace std; //do we need this?
 
 //variables, constants and data types
@@ -91,6 +92,7 @@ Cell * generateMaze(int width, int height)//the main function of the file
     M[0].l = false;
     //Create an exit in the bottom right
     M[mH * mW - 1].r = false;
+    delete a;
     return M;//finally return the generated maze
 }
 
@@ -183,6 +185,8 @@ void goRight(Cell * M , int x, int y)
         breakInto(M, x + 1, y, LEFT);
     }
 }
+
+
 
 /*
  * TESTING FUNCTION (will not be included in the release code)
