@@ -45,11 +45,11 @@ private:
     const unsigned m_d_up = 4;
     const unsigned m_d_left = 8;
     // */
-    unsigned m_width = 0;
-    unsigned m_height = 0;
-    unsigned char * m_data = 0;
-
+    unsigned m_width;
+    unsigned m_height;
+    unsigned char * m_data;
     void breakInto(unsigned x, unsigned y, Wall direction);
+    bool setDirection(unsigned& x, unsigned& y, Wall dir);
 };
 
 

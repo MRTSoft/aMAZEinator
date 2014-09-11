@@ -42,6 +42,15 @@ bool loadResources();
 
 int main (int argNr, char* args[])
 {
-
+    Maze M(4,4);
+    M.genMaze();
+    for (unsigned i=0; i< M.getH(); i++)
+    {
+        for (unsigned j=0; j<M.getW(); j++)
+        {
+            std::cout<<(int)M.getCell(j,i)<<" ";
+        }
+        std::cout<<std::endl;
+    }
     return 0;
 }

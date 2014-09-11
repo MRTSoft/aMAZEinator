@@ -1,11 +1,20 @@
 # depslib dependency file v1.0
-1406283436 source:f:\tudor\informatica\github\github\amazeinator\refinedcode\logicengine.cpp
+1410447680 source:f:\tudor\informatica\github\github\amazeinator\refinedcode\logicengine.cpp
 	<iostream>
 	<stdlib.h>
+	"maze.h"
 
-1410445949 source:f:\tudor\informatica\github\github\amazeinator\refinedcode\maze.cpp
+1410461058 source:f:\tudor\informatica\github\github\amazeinator\refinedcode\maze.cpp
 	"maze.h"
 	<stdexcept>
+	<stdlib.h>
 
-1410445906 f:\tudor\informatica\github\github\amazeinator\refinedcode\maze.h
+1410455041 f:\tudor\informatica\github\github\amazeinator\refinedcode\maze.h
+
+1410457868 source:f:\tudor\informatica\github\github\amazeinator\refinedcode\entrypoint.cpp
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"maze.h"
+	<iostream>
 
