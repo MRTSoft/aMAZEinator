@@ -12,45 +12,69 @@
   */
 //LIBRARIES FOR GRAPHICS
 //TODO create SFML integration
-/*
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
-#include <SDL/SDL_ttf.h>
-*/
+
+#include "resources.h"
+#include "SFML/Graphics.hpp"
 #include "maze.h"
 #include <iostream>
-    //TODO include custom library for logistic and others
-/*
-//VARIABLES AND CONSTANTS
-#define S_WIDTH 800
-#define S_HEIGHT 600
-#define S_DEPTH 32
-//initial video mode set to 800x600x32
-typedef SDL_Surface Surf;
-typedef SDL_Rect Rect;
-Surf * screen;
-Surf * sprite;
-Surf * guiSprite;// NOTE Need to figure out how to build the GUI
+#include <string>
+#include <sstream>
 
-void applyTo(int, int, surf *, surf *);
-void applyTo(int, int, surf *, surf *, int, int);
-bool init();
-void cleanUp();
-bool loadResources();
-//FUNCTIONS PROTO
-*/
+
+void loadGraphics();
+sf::Texture tiles[15];
 
 int main (int argNr, char* args[])
 {
-    Maze M(4,4);
-    M.genMaze();
-    for (unsigned i=0; i< M.getH(); i++)
+    loadGraphics();
+    sf::RenderWindow screen(sf::VideoMode(800,600), "a M A Z E inator");
+    //initiate();
+    screen.setActive(false);
+    sf::Thread renderThread(&renderWindow, &screen);
+    renderThread.launch();
+    sf::Event event;
+    while(screen.isOpen())
     {
-        for (unsigned j=0; j<M.getW(); j++)
+        while(screen.pollEvent(event))
         {
-            std::cout<<(int)M.getCell(j,i)<<" ";
+            //handle logistic
+            handleEvents(event, &screen);
         }
-        std::cout<<std::endl;
     }
+    //*/
     return 0;
+}
+
+void renderWindow(sf::RenderWindow * screen)
+{
+    screen->setActive();
+    while(screen->isOpen())
+    {
+        //first draw everything
+        //then display
+        screen->display();
+    }
+}
+
+void pasteString(int x, std::string & orig)
+{
+    std::stringstream ss;
+    ss<<x;
+    orig.append(ss.str());
+}
+
+void loadGraphics()
+{
+    std::string fName = "";
+    std::string basePath = "Textures/img";
+    std::string ext = ".png";
+
+    for (unsigned i=0; i<15; i++)
+    {
+        fName = basePath;
+        pasteString((int)i, fName);
+        fName += ext;
+        if (!tiles[i].loadFromFile(fName))
+            std::cout<<"Fail to load "<<fName<<std::endl;
+    }
 }
