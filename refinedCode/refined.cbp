@@ -18,11 +18,18 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-DSFML_STATIC" />
 		</Compiler>
+		<Linker>
+			<Add library="sfml-graphics-s-d" />
+			<Add library="sfml-window-s-d" />
+			<Add library="sfml-system-s-d" />
+		</Linker>
 		<Unit filename="entryPoint.cpp" />
 		<Unit filename="logicEngine.cpp" />
 		<Unit filename="maze.cpp" />
 		<Unit filename="maze.h" />
+		<Unit filename="resources.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
