@@ -1,3 +1,7 @@
+# Project files (layout view and CodeBlocksProject)
+*.layout
+*.cbp
+
 # Compiled Object files
 *.slo
 *.lo
