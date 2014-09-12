@@ -63,6 +63,14 @@ unsigned char Maze::getCell(unsigned x, unsigned y)
     //NOTE getCell throws exceptions
 }
 
+void Maze::toIntArray(int * A)
+{
+    for (unsigned i=0; i<m_height; i++)
+    {
+        for (unsigned j=0; j<m_width; j++)
+            A[i*m_height+j] = (int)m_data[i*m_height+j];
+    }
+}
 bool Maze::setWall(unsigned x, unsigned y, Wall w, bool v)
 {
     if(x >= m_width) throw std::out_of_range("x is larger than the width of the maze!");

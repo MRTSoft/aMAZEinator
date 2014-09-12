@@ -38,6 +38,7 @@ public:
     bool setWall(unsigned x, unsigned y, Wall w, bool v);
     Maze& operator = (const Maze& source);//Prevents shallow copying
     void genMaze();
+    void toIntArray(int * A);
 private:
     /*
     const unsigned m_d_down = 1;

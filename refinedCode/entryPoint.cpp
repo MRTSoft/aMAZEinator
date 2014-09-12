@@ -26,13 +26,22 @@ sf::Texture tiles[15];
 
 int main (int argNr, char* args[])
 {
-    loadGraphics();
+    //loadGraphics();
+    unsigned mH = 10;
+    unsigned mW = 10;
+    Maze M(mW, mH);
+    M.genMaze();
+    int T[mW*mH];
+    M.toIntArray(T);
+    TileMap map;
+    map.load("Textures/sprite.png", sf::Vector2u(40,40), T, mW, mH);
     sf::RenderWindow screen(sf::VideoMode(800,600), "a M A Z E inator");
     //initiate();
-    screen.setActive(false);
-    sf::Thread renderThread(&renderWindow, &screen);
-    renderThread.launch();
+    //screen.setActive(false);
+    //sf::Thread renderThread(&renderWindow, &screen, map);
+    //renderThread.launch();
     sf::Event event;
+
     while(screen.isOpen())
     {
         while(screen.pollEvent(event))
@@ -40,17 +49,20 @@ int main (int argNr, char* args[])
             //handle logistic
             handleEvents(event, &screen);
         }
+        screen.draw(map);
+        screen.display();
     }
     //*/
     return 0;
 }
 
-void renderWindow(sf::RenderWindow * screen)
+void renderWindow(sf::RenderWindow * screen, TileMap * map)
 {
     screen->setActive();
     while(screen->isOpen())
     {
         //first draw everything
+        screen->draw(*map);
         //then display
         screen->display();
     }
