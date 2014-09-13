@@ -4,8 +4,12 @@
 Maze::Maze()
 {
     //By default create a void maze
-    m_height = m_width = 0;
-    m_data = 0;
+    const unsigned maze_size = 10;
+    m_height = m_width = maze_size;
+    m_data = new unsigned char [maze_size * maze_size];
+
+    for(unsigned long i = 0; i < maze_size * maze_size; i++)
+        m_data[i] = 15;//all wals are set
 }
 
 Maze::Maze(unsigned w, unsigned h)
@@ -65,10 +69,10 @@ unsigned char Maze::getCell(unsigned x, unsigned y)
 
 void Maze::toIntArray(int * A)
 {
-    for (unsigned i=0; i<m_height; i++)
+    for(unsigned i = 0; i < m_height; i++)
     {
-        for (unsigned j=0; j<m_width; j++)
-            A[i*m_height+j] = (int)m_data[i*m_height+j];
+        for(unsigned j = 0; j < m_width; j++)
+            A[i * m_height + j] = (int)m_data[i * m_height + j];
     }
 }
 bool Maze::setWall(unsigned x, unsigned y, Wall w, bool v)
@@ -118,7 +122,8 @@ Maze::Wall intToWall(int x)
             return Maze::Left;
             break;
 
-        default: return Maze::Down;
+        default:
+            return Maze::Down;
     }
 }
 
@@ -129,7 +134,7 @@ bool Maze::setDirection(unsigned & x, unsigned & y, Wall dir)
     {
         case Down:
             {
-                if(y < m_height-1) y++;
+                if(y < m_height - 1) y++;
                 else return false;
             }
             break;
@@ -143,7 +148,7 @@ bool Maze::setDirection(unsigned & x, unsigned & y, Wall dir)
 
         case Right:
             {
-                if(x < m_width-1) x++;
+                if(x < m_width - 1) x++;
                 else return false;
             }
             break;
@@ -155,13 +160,15 @@ bool Maze::setDirection(unsigned & x, unsigned & y, Wall dir)
             }
             break;
     }
-    if (this->getCell(x,y) == 15) return true;
+
+    if(this->getCell(x, y) == 15) return true;
+
     return false;
 }
 const unsigned C[24] = {4281, 8241, 8124, 1428, 2418, 1842, 4218, 2814, 2841, 1284, 2481, 4128, 4812, 1248, 1482, 8214, 8142, 2148, 1824, 8421, 4182, 2184, 4821, 8412}; //final randomized array
 void reverseDir(Maze::Wall& dir)
 {
-    if (dir == Maze::Down) dir = Maze::Up;
+    if(dir == Maze::Down) dir = Maze::Up;
     else if(dir == Maze::Up) dir = Maze::Down;
     else if(dir == Maze::Left) dir = Maze::Right;
     else if(dir == Maze::Right) dir = Maze::Left;
@@ -186,7 +193,7 @@ void Maze::breakInto(unsigned x, unsigned y, Wall direction)
             if(this->setDirection(x1, y1, rev))
             {
                 //reverseDir(rev);
-                this->setWall(x,y, rev, false);
+                this->setWall(x, y, rev, false);
                 //reverseDir(rev);
                 this->breakInto(x1, y1, rev);
                 //revenire pe stiva
@@ -194,3 +201,5 @@ void Maze::breakInto(unsigned x, unsigned y, Wall direction)
         }
     }
 }
+
+//TODO order methods alfabatically
