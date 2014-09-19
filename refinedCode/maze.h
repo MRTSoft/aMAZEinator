@@ -7,17 +7,9 @@
 */
 
 /*!
- \brief Defines the maze and Wall class and provides functionalities for them
+ \brief Defines the maze class and provides functionalities for it
 */
 
-// TODO write documentation for the Wall class
-enum Wall
-{
-    Down = 1,
-    Right = 2,
-    Up = 4,
-    Left = 8
-};
 
 // TODO write documentation for the Maze class
 class Maze

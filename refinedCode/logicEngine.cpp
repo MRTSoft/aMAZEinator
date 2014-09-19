@@ -25,18 +25,21 @@ void handleEvents(sf::Event ev)
         case sf::Event::Resized:
             {
                 float w = ev.size.width, h = ev.size.height;
-                /*
-                //first get the smallest size of the window
-                float minSize = w < h ? w : h;
-                //set the view on the center of the window
-                v_active.setCenter(w/2, h/2);//set to be the center of the maze
-                //unsigned cmx, cmy;
-                v_active.setSize(w, h);
-                //*/
-                //v_active.setSize(w,h);
-                sf::FloatRect vArea (-10,-10,w,h);
-                v_active = sf::View(vArea);
-                //v_active.setViewport(sf::FloatRect(0,0,w,h));
+                float dMin = h<w? h:w;
+                float SH, SW, cH, cW;
+                SH = M.getH()*_TILE_H + _PADDING;
+                SW = M.getW()*_TILE_W + _PADDING;
+                cH = h/dMin;
+                cW = w/dMin;
+                SH *= cH;
+                SW *= cW;
+                float a = (SW - (M.getW()*_TILE_W))/2;
+                float b = (SH - (M.getH()*_TILE_H))/2;
+
+                cH *= M.getH() * _TILE_H;
+                cW *= M.getW() * _TILE_W;
+                v_active.setSize(SW, SH);
+                v_active.setCenter(cH / 2, cW /2);
             }
             break;
 

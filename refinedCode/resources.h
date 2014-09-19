@@ -1,6 +1,9 @@
 #ifndef RESOURCES_H_INCLUDED
 #define RESOURCES_H_INCLUDED
 
+#define _TILE_W 40
+#define _TILE_H 40
+#define _PADDING 10
 #include "SFML/Graphics.hpp"
 #include "maze.h"
 
